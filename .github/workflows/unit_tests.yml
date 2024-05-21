@@ -140,6 +140,7 @@ jobs:
           pip install pytest-xdist
           pip install pytest-playwright
           pip install ./browsergym
+          pip install ./browsergym_bench/miniwob
 
       - name: Pip list
         run: pip list
