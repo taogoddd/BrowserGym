@@ -2,6 +2,7 @@ import os
 import pytest
 import time
 import gymnasium as gym
+import browsergym.core
 
 # register gym environments
 import browsergym_bench.miniwob
