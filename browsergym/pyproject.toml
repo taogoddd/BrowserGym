@@ -41,7 +41,7 @@ webarena = [
     "browsergym-webarena",
 ]
 workarena = [
-    "browsergym-workarena",
+    "browsergym-workarena>=0.3",
 ]
 
 [project.urls]
