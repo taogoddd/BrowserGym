@@ -585,7 +585,7 @@ def _get_env_name(task_name: str):
     if task_name.startswith("miniwob"):
         import browsergym_bench.miniwob
     elif task_name.startswith("workarena"):
-        import browsergym.workarena
+        import browsergym_bench.workarena
     elif task_name.startswith("webarena"):
         import browsergym_bench.webarena
 
