@@ -51,8 +51,7 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Pip install
-        working-directory: ./dev
-        run: pip install -r requirements.txt
+        run: pip install ./browsergym
 
       - name: Pip list
         run: pip list
@@ -61,7 +60,7 @@ jobs:
         run: playwright install --with-deps
 
       - name: Run browsergym-core Unit Tests
-        run: pytest -n 5 --durations=10 -m 'not pricy' -v core/tests
+        run: pytest -n 5 --durations=10 -m 'not pricy' -v browsergym/tests/core
 
   browsergym-miniwob:
     runs-on: ubuntu-latest
@@ -82,8 +81,7 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Pip install
-        working-directory: ./dev
-        run: pip install -r requirements.txt
+        run: pip install ./browsergym_bench/miniwob
 
       - name: Pip list
         run: pip list
@@ -107,7 +105,7 @@ jobs:
       - name: Run browsergym-miniwob Unit Tests
         env:
           MINIWOB_URL: "http://localhost:8080/miniwob/"
-        run: pytest -n 5 --durations=10 -m 'not pricy' -v miniwob/tests
+        run: pytest -n 5 --durations=10 -m 'not pricy' -v browsergym_bench/miniwob/tests
 
   browsergym-experiments:
     runs-on: ubuntu-latest
@@ -128,8 +126,7 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Pip install
-        working-directory: ./dev
-        run: pip install -r requirements.txt
+        run: pip install ./browsergym
 
       - name: Pip list
         run: pip list
@@ -153,7 +150,7 @@ jobs:
       - name: Run browsergym-miniwob Unit Tests
         env:
           MINIWOB_URL: "http://localhost:8080/miniwob/"
-        run: pytest -n 5 --durations=10 -m 'not pricy' -v experiments/tests
+        run: pytest -n 5 --durations=10 -m 'not pricy' -v browsergym/tests/experiments
 
   browsergym-webarena-fast:
     runs-on: ubuntu-latest
@@ -173,8 +170,7 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Pip install
-        working-directory: ./dev
-        run: pip install -r requirements.txt
+        run: pip install ./browsergym_bench/webarena
 
       - name: Pip list
         run: pip list
@@ -192,7 +188,7 @@ jobs:
           MAP: "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:3000"
           HOMEPAGE: "PASS:4399"
           WEBARENA_PATH: "${{ github.workspace }}/webarena/"
-        run: pytest -n 5 --durations=10 -m 'not slow and not pricy' --slowmo 1000 -v webarena/tests
+        run: pytest -n 5 --durations=10 -m 'not slow and not pricy' --slowmo 1000 -v browsergym_bench/webarena/tests
 
   browsergym-webarena-slow:
     runs-on: ubuntu-latest
@@ -212,8 +208,7 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Pip install
-        working-directory: ./dev
-        run: pip install -r requirements.txt
+        run: pip install ./browsergym_bench/webarena
 
       - name: Pip list
         run: pip list
@@ -231,4 +226,4 @@ jobs:
           MAP: "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:3000"
           HOMEPAGE: "PASS:4399"
           WEBARENA_PATH: "${{ github.workspace }}/webarena/"
-        run: pytest -n 5 --durations=10 -m 'slow and not pricy' --slowmo 1000 -v webarena/tests
+        run: pytest -n 5 --durations=10 -m 'slow and not pricy' --slowmo 1000 -v browsergym_bench/webarena/tests
