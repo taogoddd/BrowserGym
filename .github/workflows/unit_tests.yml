@@ -81,7 +81,9 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Pip install
-        run: pip install ./browsergym_bench/miniwob
+        run: >
+          pip install ./browsergym
+          pip install ./browsergym_bench/miniwob
 
       - name: Pip list
         run: pip list
@@ -170,7 +172,9 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Pip install
-        run: pip install ./browsergym_bench/webarena
+        run: >
+          pip install ./browsergym
+          pip install ./browsergym_bench/webarena
 
       - name: Pip list
         run: pip list
@@ -208,7 +212,9 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Pip install
-        run: pip install ./browsergym_bench/webarena
+        run: >
+          pip install ./browsergym
+          pip install ./browsergym_bench/webarena
 
       - name: Pip list
         run: pip list
